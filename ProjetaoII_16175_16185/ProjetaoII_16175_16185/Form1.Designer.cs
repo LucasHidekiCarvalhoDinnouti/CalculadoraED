@@ -56,6 +56,7 @@
             // txtVisor
             // 
             this.txtVisor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtVisor.Enabled = false;
             this.txtVisor.Location = new System.Drawing.Point(0, 0);
             this.txtVisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVisor.Name = "txtVisor";
@@ -65,6 +66,7 @@
             // txtResultado
             // 
             this.txtResultado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtResultado.Enabled = false;
             this.txtResultado.Location = new System.Drawing.Point(0, 27);
             this.txtResultado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtResultado.Name = "txtResultado";
@@ -99,6 +101,7 @@
             this.btnDivisao.TabIndex = 4;
             this.btnDivisao.Text = "/";
             this.btnDivisao.UseVisualStyleBackColor = true;
+            this.btnDivisao.Click += new System.EventHandler(this.btnDivisao_Click);
             // 
             // btnMultiplicacao
             // 
@@ -108,6 +111,7 @@
             this.btnMultiplicacao.TabIndex = 5;
             this.btnMultiplicacao.Text = "*";
             this.btnMultiplicacao.UseVisualStyleBackColor = true;
+            this.btnMultiplicacao.Click += new System.EventHandler(this.btnMultiplicacao_Click);
             // 
             // btnSubtracao
             // 
@@ -117,6 +121,7 @@
             this.btnSubtracao.TabIndex = 6;
             this.btnSubtracao.Text = "-";
             this.btnSubtracao.UseVisualStyleBackColor = true;
+            this.btnSubtracao.Click += new System.EventHandler(this.btnSubtracao_Click);
             // 
             // btn7
             // 
@@ -146,6 +151,7 @@
             this.btnAbreParenteses.TabIndex = 9;
             this.btnAbreParenteses.Text = "(";
             this.btnAbreParenteses.UseVisualStyleBackColor = true;
+            this.btnAbreParenteses.Click += new System.EventHandler(this.btnAbreParenteses_Click);
             // 
             // btnApagar
             // 
@@ -165,6 +171,7 @@
             this.btnIgual.TabIndex = 11;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = true;
+            this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
             // 
             // btn0
             // 
@@ -184,6 +191,7 @@
             this.btnFechaParenteses.TabIndex = 13;
             this.btnFechaParenteses.Text = ")";
             this.btnFechaParenteses.UseVisualStyleBackColor = true;
+            this.btnFechaParenteses.Click += new System.EventHandler(this.btnFechaParenteses_Click);
             // 
             // btn3
             // 
@@ -253,6 +261,7 @@
             this.btnPonto.TabIndex = 20;
             this.btnPonto.Text = ".";
             this.btnPonto.UseVisualStyleBackColor = true;
+            this.btnPonto.Click += new System.EventHandler(this.btnPonto_Click);
             // 
             // btnAdicao
             // 
@@ -262,6 +271,7 @@
             this.btnAdicao.TabIndex = 21;
             this.btnAdicao.Text = "+";
             this.btnAdicao.UseVisualStyleBackColor = true;
+            this.btnAdicao.Click += new System.EventHandler(this.btnAdicao_Click);
             // 
             // btn9
             // 
@@ -303,8 +313,11 @@
             this.Controls.Add(this.txtVisor);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "frmCalculadora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora Científica";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCalculadora_FormClosed);
             this.Load += new System.EventHandler(this.frmCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
