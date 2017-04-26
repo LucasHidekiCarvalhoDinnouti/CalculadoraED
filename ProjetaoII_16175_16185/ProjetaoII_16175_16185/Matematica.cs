@@ -79,14 +79,13 @@ namespace ProjetaoII_16175_16185
             for (; i < 26; i++)
             {
                 if (valores[i] == default(double))
-                    break;
-                if (!(valor == valores[i]))
-                    continue;
-                else
-                    return char.ConvertFromUtf32(65 + i)[0];  
+                {
+                    valores[i] = valor;
+                    return char.ConvertFromUtf32(65 + i)[0];
+                }
             }
-            valores[i] = valor;
-            return char.ConvertFromUtf32(65 + i)[0];
+            return '&'; // não é para acontecer
+            
         }
 
         private double CalculaSubExpressao(char op1, char op2, char s)
@@ -132,48 +131,48 @@ namespace ProjetaoII_16175_16185
             return novaExpressao;
         }
 
-        public void ConverteDeInfixaParaPosfixa(string expressao)
+        public string ConverteDeInfixaParaPosfixa(string expressao)
         {
+            string expressaoPosfixa = "";
             expressao = ValoresParaLetras(expressao);
-            //      pilhaPosfixa = new PilhaListaHerdada<string>(); 
-            //    While Not EOF(Entrada) Do
-            //{
+            pilhaPosfixa = new PilhaListaHerdada<char>();
+            char operadorComMaiorPrecedencia;
 
-            //          Read(Entrada, Simbolo_Lido);
-            //          If Not(Simbolo_Lido In['(', ')', '+', '-', '*', '/', '']) Then
-            //  Write(Simbolo_Lido) 				// escreve Operando na tela
+            while (expressao != "")
+            {
+                char simboloLido = expressao.Remove(1, 0)[0];
 
-            //  Else    // operador
-            //  {
+                if (!ehOperador(simboloLido))
+                    expressaoPosfixa += simboloLido;
+                else
+                {
+                    bool parar = false;
+                    while ((!parar) && (!pilhaPosfixa.EstaVazia()) &&
+                          (HaPrecedencia(pilhaPosfixa.OTopo(), simboloLido)))
+                    {
+                        operadorComMaiorPrecedencia = pilhaPosfixa.Desempilhar();
+                        if (operadorComMaiorPrecedencia != '(')
+                            expressaoPosfixa += operadorComMaiorPrecedencia;
+                        else
+                            parar = true;
+                    }
+                    if (simboloLido != ')')
+                        pilhaPosfixa.Empilhar(simboloLido);
+                    else
+                    {
+                        operadorComMaiorPrecedencia = pilhaPosfixa.Desempilhar();
+                    }
+                }
+            }
 
-            //          Parar:= false;
+            while (!pilhaPosfixa.EstaVazia())
+            {
+                operadorComMaiorPrecedencia = pilhaPosfixa.Desempilhar();
+                if (operadorComMaiorPrecedencia != '(')
+                    expressaoPosfixa += operadorComMaiorPrecedencia;
+            }
 
-            //              While(not parar) and(not pilhaPosfixa.estaVazia()) and
-            //                (HaPrecedencia(pilhaPosfixa.oTopo(), Simbolo_Lido)) Do
-            //  {
-
-            //              Operador_com_Maior_Precedencia:= pilhaPosfixa.desempilhar();
-            //                  If operador_com_Maior_Precedencia<> ‘(‘ then
-            //         Write(Operador_com_Maior_Precedencia)
-            //         Else
-            //           Parar := true;
-            //              }
-            //              If Simbolo_Lido<> ')' Then
-            //      pilhaPosfixa.empilhar(Simbolo_Lido)
-
-            //    Else      { fará isso QUANDO o Pilha[TOPO] = '(' }
-            //          Operador_com_Maior_Precedencia:= pilhaPosfixa.desempilhar();
-            //          }
-            //      }   // While not EOF 
-
-            //      While not pilhaPosfixa.estaVazia() Do { Descarrega a Pilha Para a Saída }
-            //      {
-            //      Operador_com_Maior_Precedencia:= pilhaPosfixa.desempilhar();
-            //          If Operador_com_Maior_Precedencia<> '(' Then
-            //                Write(Operador_com_Maior_Precedencia);
-            //      }
-            //  }
-
+            return "Erro na conversão de infixa para posfixa.";
         }
     }
 }
