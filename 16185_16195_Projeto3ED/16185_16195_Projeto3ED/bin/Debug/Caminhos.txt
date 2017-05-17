@@ -1,0 +1,39 @@
+Madrid         Salamanca       220  150  40  
+Salamanca      Guarda          160   90  25
+Guarda         Viseu            76   80  30
+Madrid         Zaragoza        314  300  55
+Madrid         Albacete        257  280  45
+Madrid         Toledo           72  205  13
+Madrid         Valladolid      189  140  33
+Toledo         Cordoba         344  210  70
+Cordoba        Sevilha         140  220  25
+Sevilha        Huelva           94  201  12
+Sevilha        Cadiz           121   80  24
+Sevilha        Caceres         267  120  110
+Caceres        Toledo          260  110  46
+Caceres        Castelo Branco  141   90  50
+Castelo Branco Coimbra         137  150  32
+Zaragoza       Lleida          150  210  19
+Lleida         Tarragona       100  205  40
+Tarragona      Barcelona        99  208  21
+Tarragona      Valencia        258  250  38
+Valencia       Albacete        188  270  22
+Albacete       Murcia          144  230  27
+Murcia         Cartagena        50  201  17
+Valencia       Alicante        179  105  77
+Alicante       Murcia           82   80  54
+Murcia         Lorca            70   60  17
+Zaragoza       Valencia        308   93  34
+Zaragoza       Pau             235   60  25
+Pau            Toulouse        195   90  34
+Toulouse       Montpellier     246   76  32
+Zaragoza       Logrono         170  100  15
+Logrono        San Sebastian   167   75  46
+Logrono        Bilbao          136   77  22
+Logrono        Burgos          104   50  18
+Bilbao         Burgos          158   70  23
+Burgos         Valladolid      136   50  20
+Valladolid     Santander       244   66  31
+Valladolid     Leon            137   95  18
+Leon           Oviedo          125   83  20
+Leon           Ponferrada      113   75  16

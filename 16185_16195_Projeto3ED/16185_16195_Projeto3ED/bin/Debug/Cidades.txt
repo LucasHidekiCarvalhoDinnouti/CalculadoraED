@@ -1,0 +1,34 @@
+Albacete
+Alicante
+Barcelona
+Bilbao
+Burgos
+Caceres
+Cadiz
+Cordoba
+Cartagena
+Castelo Branco
+Coimbra
+Guarda
+Huelva
+Leon
+Lleida
+Lorca
+Logrono
+Madrid
+Montpellier
+Murcia
+Oviedo
+Pau
+Ponferrada
+Salamanca
+San sebastian
+Santander
+Sevilla
+Tarragona
+Toledo
+Toulouse
+Valencia
+Valladolid
+Viseu
+Zaragoza
