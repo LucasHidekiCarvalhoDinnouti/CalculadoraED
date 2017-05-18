@@ -20,3 +20,12 @@ F:\_ProjEstrDados\Projeto3\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Deb
 F:\_ProjEstrDados\Projeto3\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.frmCaminhosDeTrem.resources
 F:\_ProjEstrDados\Projeto3\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.Properties.Resources.resources
 F:\_ProjEstrDados\Projeto3\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.csproj.GenerateResource.Cache
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\bin\Debug\16185_16195_Projeto3ED.exe.config
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.exe
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.pdb
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\bin\Debug\16185_16195_Projeto3ED.exe
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\bin\Debug\16185_16195_Projeto3ED.pdb
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.csprojResolveAssemblyReference.cache
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.frmCaminhosDeTrem.resources
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.Properties.Resources.resources
+Z:\3º Semestre\_EstruturaDeDados\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.csproj.GenerateResource.Cache

@@ -57,19 +57,23 @@ namespace _16185_16195_Projeto3ED
                 int l = listaCidades.IndexOf(nomeCidadeOrigem);
                 int c = listaCidades.IndexOf(nomeCidadeDestino);
 
-                adjDistancia[l, c] = distancia;
-                adjVelocidade[l, c] = velMedia;
-                adjPreco[l, c] = preco;
+                
+                if (l >= 0 && c >= 0)
+                {
+                    adjDistancia[l, c] = distancia;
+                    adjVelocidade[l, c] = velMedia;
+                    adjPreco[l, c] = preco;
+                }
             }
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            string [] visited = new string [listaCidades.ToArray().Length];
+             string [] visited = new string [listaCidades.ToArray().Length];
 
             int start = 0;
             int end = 4;
-            path = new int[10];
+            path = new int[40];
             bestPath = new int[path.Length];
             path[start] = -1;
 
