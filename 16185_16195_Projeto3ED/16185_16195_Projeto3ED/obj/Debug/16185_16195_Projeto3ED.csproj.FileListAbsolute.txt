@@ -38,3 +38,12 @@ D:\_ProjEstrDados\Projeto3\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\
 D:\_ProjEstrDados\Projeto3\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.frmCaminhosDeTrem.resources
 D:\_ProjEstrDados\Projeto3\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.Properties.Resources.resources
 D:\_ProjEstrDados\Projeto3\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.csproj.GenerateResource.Cache
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\bin\Debug\16185_16195_Projeto3ED.exe.config
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.exe
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.pdb
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\bin\Debug\16185_16195_Projeto3ED.exe
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\bin\Debug\16185_16195_Projeto3ED.pdb
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.csprojResolveAssemblyReference.cache
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.frmCaminhosDeTrem.resources
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\_16185_16195_Projeto3ED.Properties.Resources.resources
+C:\Users\u16185\Desktop\ED\16185_16195_Projeto3ED\16185_16195_Projeto3ED\obj\Debug\16185_16195_Projeto3ED.csproj.GenerateResource.Cache

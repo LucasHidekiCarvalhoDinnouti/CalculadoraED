@@ -65,6 +65,11 @@ namespace _16185_16195_Projeto3ED
                     adjPreco[l, c] = preco;
                 }
             }
+            for (int i = 0; i < listaCidades.Count; i++)
+            {
+                cbSaida.Items.Add(listaCidades[i]);
+                cbDestino.Items.Add(listaCidades[i]);
+            }
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -74,8 +79,11 @@ namespace _16185_16195_Projeto3ED
             for (int i = 0; i<visited.Length; i++)
                 visited[i] = "";
 
-            int start = 0;
-            int end = 16;
+            int start = listaCidades.IndexOf(cbSaida.SelectedText);
+            int end   = listaCidades.IndexOf(cbDestino.SelectedText);
+
+            //shit
+
             path = new int[40];
             bestPath = new int[path.Length];
 
@@ -84,16 +92,25 @@ namespace _16185_16195_Projeto3ED
 
             path[start] = -1;
 
-            best = DFS(adjDistancia, visited, start, end, path, 0);
-            lsbCaminho.Items.Add("Best path: "+ best);
-            lsbCaminho.Items.Add("Path: "+ end);
-            
-            while (bestPath[end] != -1)
+            if (best != int.MaxValue)
             {
-                lsbCaminho.Items.Add("<--" + bestPath[end]);
-                end = bestPath[end];
+                best = DFS(adjDistancia, visited, start, end, path, 0);
+                lsbCaminho.Items.Add("Best path: " + best);
+                lsbCaminho.Items.Add("Path: " + end);
+                while (bestPath[end] != -1)
+                {
+                    lsbCaminho.Items.Add("<--" + bestPath[end]);
+                    end = bestPath[end];
+                }
+                lsbCaminho.Items.Add(" ");
             }
-            lsbCaminho.Items.Add(" ");
+            else
+            {
+                MessageBox.Show("Não há caminho entre as cidades");
+            }
+
+
+
         }
 
         public double DFS(double [,] adj, string[] visited, int start, int end, int [] path, int level)
