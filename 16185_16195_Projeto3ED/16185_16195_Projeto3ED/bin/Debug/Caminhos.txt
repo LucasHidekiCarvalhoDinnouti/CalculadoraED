@@ -18,7 +18,7 @@ Lleida         Tarragona       100  205  40
 Tarragona      Barcelona        99  208  21
 Tarragona      Valencia        258  250  38
 Valencia       Albacete        188  270  22
-Albacete       Murcia          144  230  27
+Albacete       Murcia          999  230  27
 Murcia         Cartagena        50  201  17
 Valencia       Alicante        179  105  77
 Alicante       Murcia           82   80  54

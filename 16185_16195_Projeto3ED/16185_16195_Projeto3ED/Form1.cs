@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +17,11 @@ namespace _16185_16195_Projeto3ED
         private int[] path;
         private double best = int.MaxValue;
 
-        private double[,] adjPreco       = new double[39, 39];
-        private double[,] adjVelocidade  = new double[39, 39];
-        private double[,] adjDistancia   = new double[39, 39];
+        private static int NUM_CIDADES = 39; 
+
+        private double[,] adjPreco       = new double[NUM_CIDADES, NUM_CIDADES];
+        private double[,] adjTempo       = new double[NUM_CIDADES, NUM_CIDADES];
+        private double[,] adjDistancia   = new double[NUM_CIDADES, NUM_CIDADES];
         private List<string> listaCidades  = new List<string> ();
 
         public frmCaminhosDeTrem()
@@ -44,6 +46,10 @@ namespace _16185_16195_Projeto3ED
 
             leitor.Close();
 
+            EncherMatriz(adjDistancia, double.MaxValue);
+            EncherMatriz(adjPreco, double.MaxValue);
+            EncherMatriz(adjTempo, double.MaxValue);
+
             leitor = new StreamReader("Caminhos.txt");
             while ((linha = leitor.ReadLine()) != null)
             {
@@ -61,7 +67,7 @@ namespace _16185_16195_Projeto3ED
                 if (l >= 0 && c >= 0)
                 {
                     adjDistancia[l, c] = distancia;
-                    adjVelocidade[l, c] = velMedia;
+                    adjTempo[l, c] = (distancia / velMedia)*60;
                     adjPreco[l, c] = preco;
                 }
             }
@@ -72,45 +78,115 @@ namespace _16185_16195_Projeto3ED
             }
         }
 
+        private void EncherMatriz (double [,] mat, double doQue)
+        {
+            for (int i = 0; i < NUM_CIDADES; i++)
+            {
+                for (int j = 0; j < NUM_CIDADES; j++)
+                {
+                    mat[i, j] = doQue;
+                }
+            }
+        }
+
+        private void CopiarMatriz (double[,] a1, double[,] a2)
+        {
+            for (int i = 0; i<NUM_CIDADES; i++)
+            {
+                for (int j = 0; j < NUM_CIDADES; j++)
+                {
+                    a1[i, j] = a2[i, j];
+                }
+            }
+        }
+
         private void btnCalcular_Click(object sender, EventArgs e)
         {
+            //adicionar Radio group
+            double[,] adjAtual = new double[NUM_CIDADES, NUM_CIDADES];
+
+            string escolha;
+
+            if (rbDistancia.Checked)
+            {
+                CopiarMatriz(adjAtual, adjDistancia);
+                escolha = "Distância";
+            }
+            else if (rbPreco.Checked)
+            {
+                CopiarMatriz(adjAtual, adjPreco);
+                escolha = "Preço";
+            }
+            else if (rbTempo.Checked)
+            {
+                CopiarMatriz(adjAtual, adjTempo);
+                escolha = "Tempo";
+            }
+            else
+            {
+                CopiarMatriz(adjAtual, adjDistancia);
+                escolha = "Distância";
+            }
+                
+
+            lsbCaminho.Items.Clear();
             string [] visited = new string [listaCidades.ToArray().Length];
 
             for (int i = 0; i<visited.Length; i++)
                 visited[i] = "";
 
-            int start = listaCidades.IndexOf(cbSaida.SelectedText);
-            int end   = listaCidades.IndexOf(cbDestino.SelectedText);
+            int start = listaCidades.IndexOf(cbSaida.Text);
+            int end   = listaCidades.IndexOf(cbDestino.Text);
+            
+            if (start < 0 || end < 0 )
+            {
+                MessageBox.Show("Selecione uma Cidade dentro da lista das válidas");
+                return;
+            }
 
-            //shit
-
-            path = new int[40];
-            bestPath = new int[path.Length];
+            path = new int[NUM_CIDADES];
+            bestPath = new int[NUM_CIDADES];
 
             for (int i = 0; i < bestPath.Length; i++)
                 bestPath[i] = -1;
 
             path[start] = -1;
 
+            best = DFS(adjAtual, visited, start, end, path, 0);
+
             if (best != int.MaxValue)
             {
-                best = DFS(adjDistancia, visited, start, end, path, 0);
-                lsbCaminho.Items.Add("Best path: " + best);
-                lsbCaminho.Items.Add("Path: " + end);
+                lsbCaminho.Items.Add("Menor " + escolha + ": " + best);
+                Stack<string> percurso = new Stack<string>();
+                string destino = listaCidades[end] + ;
                 while (bestPath[end] != -1)
                 {
-                    lsbCaminho.Items.Add("<--" + bestPath[end]);
+                    percurso.Push(listaCidades[bestPath[end]]);
                     end = bestPath[end];
                 }
-                lsbCaminho.Items.Add(" ");
+                while (percurso.Count != 0)
+                {
+                    lsbCaminho.Items.Add(percurso.Pop());
+                    lsbCaminho.Items.Add("V");
+                }
+                lsbCaminho.Items.Add(destino);
             }
             else
             {
                 MessageBox.Show("Não há caminho entre as cidades");
+                return;
             }
 
+            for (int i = 0; i < visited.Length; i++)
+                visited[i] = "";
 
+            for (int i = 0; i < bestPath.Length; i++)
+                bestPath[i] = -1;
 
+            for (int i = 0; i < path.Length; i++)
+                path[i] = default(int);
+
+            best = int.MaxValue;
         }
 
         public double DFS(double [,] adj, string[] visited, int start, int end, int [] path, int level)
@@ -122,7 +198,7 @@ namespace _16185_16195_Projeto3ED
 
             if (start == end)
             {
-                Console.Out.Write(str + start + " ");
+                Console.Out.WriteLine(str + start + " ");
                 return 0;
             }
             else
@@ -130,12 +206,11 @@ namespace _16185_16195_Projeto3ED
                 Console.Out.WriteLine(str + start);
             }
 
-
             visited[start] = "visiting";
             for (int i=0; i<adj.GetLength(0); i++)
             {
                 double result;
-                if ((adj[start, i] != 0)&&(!visited[i].Equals("visiting")))
+                if ((adj[start, i] != double.MaxValue)&&(!visited[i].Equals("visiting")))
                 {
                     path[i] = start;
                     result = DFS(adj, visited, i, end, path, level + 1) + adj[start,i];
@@ -144,16 +219,13 @@ namespace _16185_16195_Projeto3ED
                         if (result < best)
                         {
                             best = result;
-                            for (int j = 0; j<path.ToArray().Length; j++)
-                                bestPath[j] = path[j];
+                            Array.Copy(path, bestPath, NUM_CIDADES);
                         }
-                        lsbCaminho.Items.Add("result: " + result);
                     }
                 }
             }
             visited[start] = "visited";
             return best;
         }
-
     }
 }

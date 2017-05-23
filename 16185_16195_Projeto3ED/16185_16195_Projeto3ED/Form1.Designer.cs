@@ -51,6 +51,11 @@
             this.tpViagem = new System.Windows.Forms.TabPage();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.gpbEscolha = new System.Windows.Forms.GroupBox();
+            this.rbPreco = new System.Windows.Forms.RadioButton();
+            this.rbDistancia = new System.Windows.Forms.RadioButton();
+            this.rbTempo = new System.Windows.Forms.RadioButton();
+            this.lsbCaminho = new System.Windows.Forms.ListBox();
             this.txtDistancia = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtVelMedia = new System.Windows.Forms.TextBox();
@@ -63,13 +68,13 @@
             this.cbSaida = new System.Windows.Forms.ComboBox();
             this.lblSaida = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.lsbCaminho = new System.Windows.Forms.ListBox();
             this.tpAdicionar.SuspendLayout();
             this.gbAddRotas.SuspendLayout();
             this.gbAddCidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMapinha)).BeginInit();
             this.tpViagem.SuspendLayout();
             this.gpbInfo.SuspendLayout();
+            this.gpbEscolha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMapa)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
@@ -297,6 +302,7 @@
             // 
             this.gpbInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpbInfo.Controls.Add(this.gpbEscolha);
             this.gpbInfo.Controls.Add(this.lsbCaminho);
             this.gpbInfo.Controls.Add(this.txtDistancia);
             this.gpbInfo.Controls.Add(this.txtPreco);
@@ -311,23 +317,76 @@
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Informações";
             // 
+            // gpbEscolha
+            // 
+            this.gpbEscolha.Controls.Add(this.rbPreco);
+            this.gpbEscolha.Controls.Add(this.rbDistancia);
+            this.gpbEscolha.Controls.Add(this.rbTempo);
+            this.gpbEscolha.Location = new System.Drawing.Point(9, 19);
+            this.gpbEscolha.Name = "gpbEscolha";
+            this.gpbEscolha.Size = new System.Drawing.Size(189, 61);
+            this.gpbEscolha.TabIndex = 8;
+            this.gpbEscolha.TabStop = false;
+            this.gpbEscolha.Text = "Menor";
+            // 
+            // rbPreco
+            // 
+            this.rbPreco.AutoSize = true;
+            this.rbPreco.Location = new System.Drawing.Point(6, 38);
+            this.rbPreco.Name = "rbPreco";
+            this.rbPreco.Size = new System.Drawing.Size(53, 17);
+            this.rbPreco.TabIndex = 2;
+            this.rbPreco.TabStop = true;
+            this.rbPreco.Text = "Preço";
+            this.rbPreco.UseVisualStyleBackColor = true;
+            // 
+            // rbDistancia
+            // 
+            this.rbDistancia.AutoSize = true;
+            this.rbDistancia.Checked = true;
+            this.rbDistancia.Location = new System.Drawing.Point(114, 19);
+            this.rbDistancia.Name = "rbDistancia";
+            this.rbDistancia.Size = new System.Drawing.Size(69, 17);
+            this.rbDistancia.TabIndex = 1;
+            this.rbDistancia.TabStop = true;
+            this.rbDistancia.Text = "Distância";
+            this.rbDistancia.UseVisualStyleBackColor = true;
+            // 
+            // rbTempo
+            // 
+            this.rbTempo.AutoSize = true;
+            this.rbTempo.Location = new System.Drawing.Point(6, 19);
+            this.rbTempo.Name = "rbTempo";
+            this.rbTempo.Size = new System.Drawing.Size(58, 17);
+            this.rbTempo.TabIndex = 0;
+            this.rbTempo.Text = "Tempo";
+            this.rbTempo.UseVisualStyleBackColor = true;
+            // 
+            // lsbCaminho
+            // 
+            this.lsbCaminho.FormattingEnabled = true;
+            this.lsbCaminho.Location = new System.Drawing.Point(9, 174);
+            this.lsbCaminho.Name = "lsbCaminho";
+            this.lsbCaminho.Size = new System.Drawing.Size(189, 264);
+            this.lsbCaminho.TabIndex = 8;
+            // 
             // txtDistancia
             // 
-            this.txtDistancia.Location = new System.Drawing.Point(81, 29);
+            this.txtDistancia.Location = new System.Drawing.Point(81, 86);
             this.txtDistancia.Name = "txtDistancia";
             this.txtDistancia.Size = new System.Drawing.Size(117, 20);
             this.txtDistancia.TabIndex = 8;
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(81, 80);
+            this.txtPreco.Location = new System.Drawing.Point(81, 114);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(117, 20);
             this.txtPreco.TabIndex = 9;
             // 
             // txtVelMedia
             // 
-            this.txtVelMedia.Location = new System.Drawing.Point(81, 130);
+            this.txtVelMedia.Location = new System.Drawing.Point(81, 142);
             this.txtVelMedia.Name = "txtVelMedia";
             this.txtVelMedia.Size = new System.Drawing.Size(117, 20);
             this.txtVelMedia.TabIndex = 10;
@@ -335,7 +394,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 133);
+            this.label3.Location = new System.Drawing.Point(6, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 2;
@@ -344,7 +403,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 83);
+            this.label2.Location = new System.Drawing.Point(6, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
@@ -353,7 +412,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 32);
+            this.label1.Location = new System.Drawing.Point(6, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
@@ -362,16 +421,17 @@
             // cbDestino
             // 
             this.cbDestino.FormattingEnabled = true;
-            this.cbDestino.Location = new System.Drawing.Point(395, 15);
+            this.cbDestino.Location = new System.Drawing.Point(292, 15);
             this.cbDestino.Name = "cbDestino";
             this.cbDestino.Size = new System.Drawing.Size(121, 21);
             this.cbDestino.TabIndex = 5;
+            this.cbDestino.Text = "Murcia";
             // 
             // lblDestino
             // 
             this.lblDestino.AutoSize = true;
             this.lblDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDestino.Location = new System.Drawing.Point(284, 9);
+            this.lblDestino.Location = new System.Drawing.Point(208, 11);
             this.lblDestino.Name = "lblDestino";
             this.lblDestino.Size = new System.Drawing.Size(78, 25);
             this.lblDestino.TabIndex = 4;
@@ -393,16 +453,17 @@
             // cbSaida
             // 
             this.cbSaida.FormattingEnabled = true;
-            this.cbSaida.Location = new System.Drawing.Point(86, 15);
+            this.cbSaida.Location = new System.Drawing.Point(77, 15);
             this.cbSaida.Name = "cbSaida";
             this.cbSaida.Size = new System.Drawing.Size(121, 21);
             this.cbSaida.TabIndex = 2;
+            this.cbSaida.Text = "Madrid";
             // 
             // lblSaida
             // 
             this.lblSaida.AutoSize = true;
             this.lblSaida.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaida.Location = new System.Drawing.Point(8, 9);
+            this.lblSaida.Location = new System.Drawing.Point(8, 11);
             this.lblSaida.Name = "lblSaida";
             this.lblSaida.Size = new System.Drawing.Size(63, 25);
             this.lblSaida.TabIndex = 1;
@@ -418,14 +479,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(884, 562);
             this.tabControl1.TabIndex = 0;
-            // 
-            // lsbCaminho
-            // 
-            this.lsbCaminho.FormattingEnabled = true;
-            this.lsbCaminho.Location = new System.Drawing.Point(9, 174);
-            this.lsbCaminho.Name = "lsbCaminho";
-            this.lsbCaminho.Size = new System.Drawing.Size(189, 264);
-            this.lsbCaminho.TabIndex = 8;
             // 
             // frmCaminhosDeTrem
             // 
@@ -446,6 +499,8 @@
             this.tpViagem.PerformLayout();
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
+            this.gpbEscolha.ResumeLayout(false);
+            this.gpbEscolha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMapa)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -489,6 +544,10 @@
         private System.Windows.Forms.TextBox txtAddPreco;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox lsbCaminho;
+        private System.Windows.Forms.GroupBox gpbEscolha;
+        private System.Windows.Forms.RadioButton rbPreco;
+        private System.Windows.Forms.RadioButton rbDistancia;
+        private System.Windows.Forms.RadioButton rbTempo;
     }
 }
 
