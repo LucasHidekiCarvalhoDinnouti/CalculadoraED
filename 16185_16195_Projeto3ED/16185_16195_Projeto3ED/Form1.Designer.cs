@@ -58,7 +58,7 @@
             this.lsbCaminho = new System.Windows.Forms.ListBox();
             this.txtDistancia = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
-            this.txtVelMedia = new System.Windows.Forms.TextBox();
+            this.txtTempo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -252,6 +252,7 @@
             this.btnAdicionarCidade.TabIndex = 6;
             this.btnAdicionarCidade.Text = "Adicionar cidade";
             this.btnAdicionarCidade.UseVisualStyleBackColor = true;
+            this.btnAdicionarCidade.Click += new System.EventHandler(this.btnAdicionarCidade_Click);
             // 
             // txtNome
             // 
@@ -306,7 +307,7 @@
             this.gpbInfo.Controls.Add(this.lsbCaminho);
             this.gpbInfo.Controls.Add(this.txtDistancia);
             this.gpbInfo.Controls.Add(this.txtPreco);
-            this.gpbInfo.Controls.Add(this.txtVelMedia);
+            this.gpbInfo.Controls.Add(this.txtTempo);
             this.gpbInfo.Controls.Add(this.label3);
             this.gpbInfo.Controls.Add(this.label2);
             this.gpbInfo.Controls.Add(this.label1);
@@ -339,6 +340,7 @@
             this.rbPreco.TabStop = true;
             this.rbPreco.Text = "Preço";
             this.rbPreco.UseVisualStyleBackColor = true;
+            this.rbPreco.Click += new System.EventHandler(this.rbPreco_Click);
             // 
             // rbDistancia
             // 
@@ -351,6 +353,7 @@
             this.rbDistancia.TabStop = true;
             this.rbDistancia.Text = "Distância";
             this.rbDistancia.UseVisualStyleBackColor = true;
+            this.rbDistancia.Click += new System.EventHandler(this.rbDistancia_Click);
             // 
             // rbTempo
             // 
@@ -361,6 +364,7 @@
             this.rbTempo.TabIndex = 0;
             this.rbTempo.Text = "Tempo";
             this.rbTempo.UseVisualStyleBackColor = true;
+            this.rbTempo.Click += new System.EventHandler(this.rbTempo_Click);
             // 
             // lsbCaminho
             // 
@@ -372,6 +376,7 @@
             // 
             // txtDistancia
             // 
+            this.txtDistancia.BackColor = System.Drawing.Color.LightGreen;
             this.txtDistancia.Location = new System.Drawing.Point(81, 86);
             this.txtDistancia.Name = "txtDistancia";
             this.txtDistancia.Size = new System.Drawing.Size(117, 20);
@@ -384,21 +389,21 @@
             this.txtPreco.Size = new System.Drawing.Size(117, 20);
             this.txtPreco.TabIndex = 9;
             // 
-            // txtVelMedia
+            // txtTempo
             // 
-            this.txtVelMedia.Location = new System.Drawing.Point(81, 142);
-            this.txtVelMedia.Name = "txtVelMedia";
-            this.txtVelMedia.Size = new System.Drawing.Size(117, 20);
-            this.txtVelMedia.TabIndex = 10;
+            this.txtTempo.Location = new System.Drawing.Point(81, 142);
+            this.txtTempo.Name = "txtTempo";
+            this.txtTempo.Size = new System.Drawing.Size(117, 20);
+            this.txtTempo.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Vel. Média";
+            this.label3.Text = "Tempo";
             // 
             // label2
             // 
@@ -425,7 +430,7 @@
             this.cbDestino.Name = "cbDestino";
             this.cbDestino.Size = new System.Drawing.Size(121, 21);
             this.cbDestino.TabIndex = 5;
-            this.cbDestino.Text = "Murcia";
+            this.cbDestino.Text = "Alicante";
             // 
             // lblDestino
             // 
@@ -518,7 +523,7 @@
         private System.Windows.Forms.GroupBox gpbInfo;
         private System.Windows.Forms.TextBox txtDistancia;
         private System.Windows.Forms.TextBox txtPreco;
-        private System.Windows.Forms.TextBox txtVelMedia;
+        private System.Windows.Forms.TextBox txtTempo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

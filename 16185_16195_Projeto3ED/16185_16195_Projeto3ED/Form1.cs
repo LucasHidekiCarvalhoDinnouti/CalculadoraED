@@ -75,6 +75,8 @@ namespace _16185_16195_Projeto3ED
             {
                 cbSaida.Items.Add(listaCidades[i]);
                 cbDestino.Items.Add(listaCidades[i]);
+                cbAddOrigem.Items.Add(listaCidades[i]);
+                cbAddDestino.Items.Add(listaCidades[i]);
             }
         }
 
@@ -102,7 +104,6 @@ namespace _16185_16195_Projeto3ED
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            //adicionar Radio group
             double[,] adjAtual = new double[NUM_CIDADES, NUM_CIDADES];
 
             string escolha;
@@ -130,15 +131,15 @@ namespace _16185_16195_Projeto3ED
                 
 
             lsbCaminho.Items.Clear();
-            string [] visited = new string [listaCidades.ToArray().Length];
+            string [] visited = new string [NUM_CIDADES];
 
             for (int i = 0; i<visited.Length; i++)
                 visited[i] = "";
 
-            int start = listaCidades.IndexOf(cbSaida.Text);
-            int end   = listaCidades.IndexOf(cbDestino.Text);
+            int origem  = listaCidades.IndexOf(cbSaida.Text);
+            int destino = listaCidades.IndexOf(cbDestino.Text);
             
-            if (start < 0 || end < 0 )
+            if (origem < 0 || destino < 0 )
             {
                 MessageBox.Show("Selecione uma Cidade dentro da lista das válidas");
                 return;
@@ -150,26 +151,38 @@ namespace _16185_16195_Projeto3ED
             for (int i = 0; i < bestPath.Length; i++)
                 bestPath[i] = -1;
 
-            path[start] = -1;
+            path[origem] = -1;
 
-            best = DFS(adjAtual, visited, start, end, path, 0);
+            DFS(adjAtual, visited, origem, destino, path, 0);
 
             if (best != int.MaxValue)
             {
-                lsbCaminho.Items.Add("Menor " + escolha + ": " + best);
-                Stack<string> percurso = new Stack<string>();
-                string destino = listaCidades[end] + ;
-                while (bestPath[end] != -1)
+                Stack<int> percurso = new Stack<int>();
+
+                string fim = listaCidades[destino];
+                while (bestPath[destino] != -1)
                 {
-                    percurso.Push(listaCidades[bestPath[end]]);
-                    end = bestPath[end];
+                    percurso.Push(bestPath[destino]);
+                    destino = bestPath[destino];
                 }
+
+                double distancia = ValorDoCaminho(percurso.ToArray(), adjDistancia);
+                double preco = ValorDoCaminho(percurso.ToArray(), adjPreco);
+                double tempo = ValorDoCaminho(percurso.ToArray(), adjTempo);
+
+                txtDistancia.Text = distancia.ToString() + "Km";
+                txtPreco.Text = "€" + preco.ToString();
+
+                int h = (int)tempo / 60;
+                int m = (int)tempo % 60;
+                txtTempo.Text = h.ToString() + "h" + m.ToString() + "min";
+
                 while (percurso.Count != 0)
                 {
-                    lsbCaminho.Items.Add(percurso.Pop());
+                    lsbCaminho.Items.Add(listaCidades[percurso.Pop()]);
                     lsbCaminho.Items.Add("V");
                 }
-                lsbCaminho.Items.Add(destino);
+                lsbCaminho.Items.Add(fim);
             }
             else
             {
@@ -189,43 +202,111 @@ namespace _16185_16195_Projeto3ED
             best = int.MaxValue;
         }
 
-        public double DFS(double [,] adj, string[] visited, int start, int end, int [] path, int level)
+        public double ValorDoCaminho (int [] caminho, double[,] matriz)
         {
-            string str = "";
-
-            for (int i=0; i<level; i++)
-                str += "-";
-
-            if (start == end)
+            double temp = 0;
+            
+            for (int i = 1; i < caminho.Length; i++)
             {
-                Console.Out.WriteLine(str + start + " ");
-                return 0;
+                temp += matriz[caminho[i-1],caminho[i]];
             }
-            else
+            return temp;
+        }
+        
+        public void DFS(double[,] adj, string[] visited, int origem, int destino, int[] path, double dist)
+        {
+            if (origem == destino)
             {
-                Console.Out.WriteLine(str + start);
-            }
-
-            visited[start] = "visiting";
-            for (int i=0; i<adj.GetLength(0); i++)
-            {
-                double result;
-                if ((adj[start, i] != double.MaxValue)&&(!visited[i].Equals("visiting")))
+                if (dist < best)
                 {
-                    path[i] = start;
-                    result = DFS(adj, visited, i, end, path, level + 1) + adj[start,i];
-                    if (i == end)
-                    {
-                        if (result < best)
-                        {
-                            best = result;
-                            Array.Copy(path, bestPath, NUM_CIDADES);
-                        }
-                    }
+                    best = dist;
+                    bestPath = new int[path.Length];
+                    Array.Copy(path, 0, bestPath, 0, path.Length);
+                }
+                return;
+            }
+            visited[origem] = "visiting";
+            for (int i = 0; i < adj.GetLength(0); i++)
+            {
+                if (adj[origem, i] != double.MaxValue && visited[i] != "visiting")
+                {
+                    path[i] = origem;
+                    DFS(adj, visited, i, destino, path, dist + adj[origem, i]);
                 }
             }
-            visited[start] = "visited";
-            return best;
+            visited[origem] = "visited";
         }
+
+        private void btnAdicionarCidade_Click(object sender, EventArgs e)
+        {
+            StreamWriter escritor = new StreamWriter("Cidades.txt");
+            string espacos = "                                 ";
+            string novoNome = txtNome.Text;
+            listaCidades.Add(novoNome);
+
+            escritor.WriteLine(novoNome + espacos.Substring(0, 30-novoNome.Length));
+            escritor.Close();
+        }
+
+        private void rbDistancia_Click(object sender, EventArgs e)
+        {
+            txtDistancia.BackColor = Color.LightGreen;
+            txtPreco.BackColor = Color.White;
+            txtTempo.BackColor = Color.White;
+        }
+
+        private void rbTempo_Click(object sender, EventArgs e)
+        {
+            txtDistancia.BackColor = Color.White;
+            txtPreco.BackColor = Color.White;
+            txtTempo.BackColor = Color.LightGreen;
+        }
+
+        private void rbPreco_Click(object sender, EventArgs e)
+        {
+            txtDistancia.BackColor = Color.White;
+            txtPreco.BackColor = Color.LightGreen;
+            txtTempo.BackColor = Color.White;
+        }
+
+
+        //public double DFS(double[,] adj, string[] visited, int origem, int destino, int[] path, int level)
+        //{
+        //    string str = "";
+
+        //    for (int i = 0; i < level; i++)
+        //        str += "-";
+
+        //    if (origem == destino)
+        //    {
+        //        Console.Out.WriteLine(str + origem + " ");
+        //        return 0;
+        //    }
+        //    else
+        //    {
+        //        Console.Out.WriteLine(str + origem);
+        //    }
+
+        //    visited[origem] = "visiting";
+        //    for (int i = 0; i < adj.GetLength(0); i++)
+        //    {
+        //        double result;
+        //        if ((adj[origem, i] != double.MaxValue) && (!visited[i].Equals("visiting")))
+        //        {
+        //            path[i] = origem;
+        //            result = DFS(adj, visited, i, destino, path, level + 1) + adj[origem, i];
+        //            if (i == destino)
+        //            {
+        //                if (result < best)
+        //                {
+        //                    best = result;
+        //                    Array.Copy(path, bestPath, NUM_CIDADES);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    visited[origem] = "visited";
+        //    return best;
+        //}
     }
 }
