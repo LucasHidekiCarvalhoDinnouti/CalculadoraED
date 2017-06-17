@@ -15,14 +15,28 @@ namespace _16185_16195_Projeto4ED
         enum Metodos { RECURSAO, BACKTRACKING, DJIKSTRA };
         Metodos metodoAtual = Metodos.RECURSAO;
 
+        List<string> listaCidades = new List<string>();
+
         private double best = int.MaxValue;
         private int[] bestPath;
         private int[] path;
-        private List<string> listaCidades = new List<string>();
 
         frmAdd frmAdd = new frmAdd();
 
         public static Grafo grafoCaminhos = new Grafo();
+
+        public List<string> ListaCidades
+        {
+            get
+            {
+                return listaCidades;
+            }
+
+            set
+            {
+                listaCidades = value;
+            }
+        }
 
         public frmCaminhos()
         {
@@ -33,40 +47,37 @@ namespace _16185_16195_Projeto4ED
         {
             int origem = cbCidadeOrigem.SelectedIndex;
             int destino = cbCidadeDestino.SelectedIndex;
-
+            
             lsbCaminhos.Items.Clear();
-
-            switch (metodoAtual)
-            {
-                case Metodos.RECURSAO:
-                    PreparacaoParaRecursao();
-                    break;
-                case Metodos.BACKTRACKING:
-                    PilhaVetor<Movimento> saida = new PilhaVetor<Movimento>();
-                    Backtracking(origem, destino, 10, saida);
-                    break;
-                case Metodos.DJIKSTRA:
-                    Djikstra();
-                    break;
-            }
-        }
-
-        public void PreparacaoParaRecursao()
-        {
-            lsbCaminhos.Items.Clear();
-            string[] visited = new string[103];
-
-            for (int i = 0; i < visited.Length; i++)
-                visited[i] = "";
-
-            int origem = listaCidades.IndexOf(cbCidadeOrigem.Text);
-            int destino = listaCidades.IndexOf(cbCidadeDestino.Text);
 
             if (origem < 0 || destino < 0 || origem == destino)
             {
                 MessageBox.Show("Selecione duas cidades diferentes dentro da lista das válidas");
                 return;
             }
+
+            switch (metodoAtual)
+            {
+                case Metodos.RECURSAO:
+                    PreparacaoParaRecursao(origem, destino);
+                    break;
+                case Metodos.BACKTRACKING:
+                    PilhaVetor<Movimento> saida = new PilhaVetor<Movimento>();
+                    Backtracking(origem, destino, 10, saida);
+                    break;
+                case Metodos.DJIKSTRA:
+                    Djikstra(origem, destino);
+                    break;
+            }
+        }
+
+        public void PreparacaoParaRecursao(int origem, int destino)
+        {
+            
+            string[] visited = new string[103];
+
+            for (int i = 0; i < visited.Length; i++)
+                visited[i] = "";
 
             path = new int[103];
             bestPath = new int[103];
@@ -84,7 +95,7 @@ namespace _16185_16195_Projeto4ED
 
                 string fim = listaCidades[destino];
 
-                percurso.Push(listaCidades.IndexOf(fim));
+                percurso.Push(destino);
 
                 while (bestPath[destino] != -1)
                 {
@@ -230,9 +241,9 @@ namespace _16185_16195_Projeto4ED
             return achou;
         }
 
-        private void Djikstra()
+        private void Djikstra(int origem, int destino)
         {
-            throw new NotImplementedException();
+            lsbCaminhos.Items.Add(grafoCaminhos.Caminho(origem, destino));
         }
 
         private void rbBacktracking_Click(object sender, EventArgs e)
@@ -284,6 +295,8 @@ namespace _16185_16195_Projeto4ED
         {
             frmAdd.setFrmCaminhos(this);
             frmAdd.Ler();
+
+            atualizaDgv();
         }
     }
 }

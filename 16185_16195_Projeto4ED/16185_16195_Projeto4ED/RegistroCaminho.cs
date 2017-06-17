@@ -23,13 +23,13 @@ namespace _16185_16195_Projeto4ED
 
             string CidOrigem = "";
             for (int i = 0; i < Caminho.tamanhoCidOrigem; i++)
-                if (cidOrigemLida[i] != 32)
+                if (cidOrigemLida[i] != 32 && cidOrigemLida[i] != 0)
                     CidOrigem += Char.ConvertFromUtf32(cidOrigemLida[i]);
             dados.CidOrigem = CidOrigem;
 
             string CidDestino = "";
             for (int i = 0; i < Caminho.tamanhoCidDestino; i++)
-                if (cidDestinoLida[i] != 32)
+                if (cidDestinoLida[i] != 32 && cidDestinoLida[i] != 0)
                     CidDestino += Char.ConvertFromUtf32(cidDestinoLida[i]);
             dados.CidDestino = CidDestino;
             

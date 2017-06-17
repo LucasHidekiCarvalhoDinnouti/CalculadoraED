@@ -10,3 +10,9 @@ P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\proj
 P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe
 P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.pdb
 P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.csprojResolveAssemblyReference.cache
+D:\_ProjEstrDados\Projeto4_git\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe.config
+D:\_ProjEstrDados\Projeto4_git\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe
+D:\_ProjEstrDados\Projeto4_git\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.pdb
+D:\_ProjEstrDados\Projeto4_git\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.csprojResolveAssemblyReference.cache
+D:\_ProjEstrDados\Projeto4_git\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.exe
+D:\_ProjEstrDados\Projeto4_git\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.pdb

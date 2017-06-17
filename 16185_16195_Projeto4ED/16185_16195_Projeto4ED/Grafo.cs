@@ -133,11 +133,11 @@ namespace _16185_16195_Projeto4ED
                         ExibirTabela();
                     }
                 }
-            Console.WriteLine("==================Caminho ajustado==============");
+            Console.WriteLine("================== Caminho ajustado ==============");
             Console.WriteLine();
         }
 
-        public void ExibirTabela()
+        public void ExibirTabela ()
         {
             string dist = "";
             Console.WriteLine("Vértice\tVisitado?\tPeso\tVindo de");

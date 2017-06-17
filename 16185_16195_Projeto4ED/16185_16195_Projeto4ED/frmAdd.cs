@@ -30,6 +30,7 @@ namespace _16185_16195_Projeto4ED
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            pai = new frmCaminhos();
         }
         
         private void btnAdicionarCidade_Click(object sender, EventArgs e)
@@ -47,6 +48,7 @@ namespace _16185_16195_Projeto4ED
             cbAddDestino.Items.Add(novoNome);
 
             pai.atualizaCbx(novoNome);
+            pai.ListaCidades.Add(novoNome);
             
             MessageBox.Show("Cidade " + novoNome + " inserida.");
             pnlArvore.Invalidate();
@@ -106,6 +108,7 @@ namespace _16185_16195_Projeto4ED
                     cbAddOrigem.Items.Add(nome);
 
                     pai.atualizaCbx(nome);
+                    pai.ListaCidades.Add(nome);
                 }
 
                 //adicionar balanceadamente arvoreCidades.incluirComRecursao();
@@ -132,9 +135,9 @@ namespace _16185_16195_Projeto4ED
             }
             tam = fs.Length;
 
-            for (int i = 0; i < tam / Caminho.tamanhoRegistro; i++)
+            for (long i = 0; i < tam / Caminho.tamanhoRegistro; i++)
             {
-                tempCaminho.LerRegistro(fs, (long)i * Caminho.tamanhoRegistro, ref cam);
+                tempCaminho.LerRegistro(fs, i, ref cam);
 
                 Vertice v = new Vertice(cam.CidOrigem);
                 int o = IndiceDe(cam.CidOrigem, frmCaminhos.grafoCaminhos.Vertices);
@@ -228,10 +231,11 @@ namespace _16185_16195_Projeto4ED
 
                         Caminho novoCaminho = new Caminho(cidadeOrigem, cidadeDestino, frmCaminhos.grafoCaminhos.MatAdj[l, c]);
 
-                        rCaminho.GravarRegistro(fs, nRegistro*Caminho.tamanhoRegistro, novoCaminho);
+                        rCaminho.GravarRegistro(fs, nRegistro, novoCaminho);
 
                         nRegistro++;
                     }
+            fs.Close();
 
             MessageBox.Show("Arquivo de caminhos salvo.");
 
