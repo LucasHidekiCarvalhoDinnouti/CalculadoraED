@@ -1,0 +1,12 @@
+J:\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe.config
+J:\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.csprojResolveAssemblyReference.cache
+J:\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe
+J:\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.pdb
+J:\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.exe
+J:\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.pdb
+P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe.config
+P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.exe
+P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.pdb
+P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.exe
+P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\bin\Debug\DijNoite.pdb
+P:\Informatica\Materiais Didaticos\Matutino\3o Semestre\Estruturas de Dados\projetos\Projeto IV - Comparacao de Metodos de Busca de Caminhos\djikstra\djikstra\DijNoite\DijNoite\obj\Debug\DijNoite.csprojResolveAssemblyReference.cache
